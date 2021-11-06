@@ -11,6 +11,10 @@
 *******************************************************************************
   This sample code demonstrates the normal use of a USB_Host_SHield_Library_2.0 object.
   此示例代码演示了 USB_Host_SHield_Library_2.0 对象的正常使用。
+
+  Pins may need to be remapped under ESP32 in the following files of USB Host Shield Library 2.0: avrpin.h, usbcore.h & usbhost.h
+  For M5Core2 they are as follows: GPIO33 : SS, GPIO14 : INT, GPIO18 : SCK, GPIO38 : MISO, GPIO23 : MOSI
+
 */
 
 #include <M5Core2.h>
@@ -70,7 +74,7 @@ void Mouse_Pointer(int PotDataX, int PotDataY)
 void setup()
 {
   M5.begin();
-  M5.Power.begin();
+  //M5.Power.begin();
   Serial.println("M5USB_Demo Start...");
   if (Usb.Init() == -1)
     Serial.println("USB Host Init Error");
